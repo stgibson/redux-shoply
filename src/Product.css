@@ -5,3 +5,12 @@
 .Product button {
   margin-left: 5px;
 }
+
+.Product span {
+  margin-left: 10px;
+}
+
+.Product a {
+  text-decoration: none;
+  color: black;
+}

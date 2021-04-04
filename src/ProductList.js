@@ -5,11 +5,17 @@ import Product from "./Product";
 import "./ProductList.css";
 
 const ProductList = () => {
-  const products = useSelector(store => store.products, shallowEqual);
+  const { products, cart } = useSelector(store => store, shallowEqual);
+
+  const totalItems = () => {
+    return Object.keys(cart)
+      .reduce((sum, nextProductId) => sum + cart[nextProductId].quantity, 0);
+  };
 
   return (
     <div className="ProductList">
       <h2>Product Listing</h2>
+      <p>Total number of items: { totalItems() }</p>
       <ul>
         {
           Object.keys(products).map(productId => (

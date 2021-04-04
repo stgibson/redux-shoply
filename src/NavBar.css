@@ -1,0 +1,19 @@
+.NavBar {
+  margin-top: 10px;
+}
+
+.NavBar a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.NavBar a:hover {
+  margin-left: 20px;
+  text-decoration: none;
+  color: blue;
+}
+
+.NavBar a.active {
+  font-weight: bold;
+}

@@ -1,14 +1,16 @@
 import React from "react";
-import ProductList from "./ProductList";
-import Cart from "./Cart";
+import { BrowserRouter } from "react-router-dom";
+import Routes from "./Routes";
+import NavBar from "./NavBar";
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>Welcome to Shoply!</h1>
-      <ProductList />
-      <Cart />
+      <BrowserRouter>
+        <NavBar />
+        <Routes />
+      </BrowserRouter>
     </div>
   );
 }

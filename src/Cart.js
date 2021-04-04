@@ -1,25 +1,22 @@
 import React from "react";
-import { useSelector, shallowEqual } from "react-redux";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { v4 as uuid } from "uuid";
+import { addToCart, deleteFromCart } from "./actions";
+import Product from "./Product";
 import "./Cart.css";
 
 const Cart = () => {
+  const dispatch = useDispatch();
   const cart = useSelector(store => store.cart, shallowEqual);
-
-  const totalItems = () => {
-    return Object.keys(cart)
-      .reduce((sum, nextProductId) => sum + cart[nextProductId].quantity, 0);
-  };
 
   return (
     <div className="Cart">
       <h2>Cart</h2>
-      <p>Total number of items: { totalItems() }</p>
       <ul>
         {
           Object.keys(cart).map(productId => (
             <li key={ uuid() }>
-              { `${cart[productId].name}: ${cart[productId].quantity}x` }
+              <Product id={ productId } product={ cart[productId ]} />
             </li>
           ))
         }
