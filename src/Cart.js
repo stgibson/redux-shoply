@@ -1,12 +1,10 @@
 import React from "react";
-import { useDispatch, useSelector, shallowEqual } from "react-redux";
+import { useSelector, shallowEqual } from "react-redux";
 import { v4 as uuid } from "uuid";
-import { addToCart, deleteFromCart } from "./actions";
 import Product from "./Product";
 import "./Cart.css";
 
 const Cart = () => {
-  const dispatch = useDispatch();
   const cart = useSelector(store => store.cart, shallowEqual);
 
   return (
