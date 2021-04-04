@@ -12,18 +12,20 @@ const ProductList = () => {
   const { products, cart } = useSelector(store => store, shallowEqual);
 
   /**
-   * Determines total number of items in cart
-   * @returns total number of items
+   * Determines total cost of items in cart
+   * @returns total cost
    */
-  const totalItems = () => {
-    return Object.keys(cart)
-      .reduce((sum, nextProductId) => sum + cart[nextProductId].quantity, 0);
+  const getCost = () => {
+    const cost =  Object.keys(cart).reduce((cost, nextProductId) => (
+      cost + (cart[nextProductId].quantity * cart[nextProductId].price)
+    ), 0);
+    return cost.toFixed(2);
   };
 
   return (
     <div className="ProductList">
       <h2>Product Listing</h2>
-      <p>Total number of items: { totalItems() }</p>
+      <p>Total cost: ${ getCost() }</p>
       <ul>
         {
           Object.keys(products).map(productId => (
