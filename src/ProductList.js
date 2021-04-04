@@ -4,9 +4,17 @@ import { v4 as uuid } from "uuid";
 import Product from "./Product";
 import "./ProductList.css";
 
+/**
+ * Component for displaying list of products
+ * @returns JSX code for rendering product list
+ */
 const ProductList = () => {
   const { products, cart } = useSelector(store => store, shallowEqual);
 
+  /**
+   * Determines total number of items in cart
+   * @returns total number of items
+   */
   const totalItems = () => {
     return Object.keys(cart)
       .reduce((sum, nextProductId) => sum + cart[nextProductId].quantity, 0);

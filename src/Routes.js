@@ -4,6 +4,10 @@ import ProductList from "./ProductList";
 import ProductDetail from "./ProductDetail";
 import Cart from "./Cart";
 
+/**
+ * Component for creating routes for app
+ * @returns JSX code for creating routes
+ */
 const Routes = () => {
   return (
     <Switch>

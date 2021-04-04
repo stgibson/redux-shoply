@@ -4,6 +4,10 @@ import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { addToCart, deleteFromCart } from "./actions";
 import "./ProductDetail.css";
 
+/**
+ * Component for displaying all info on a product
+ * @returns JSX code for rendering product detail page
+ */
 const ProductDetail = () => {
   const history = useHistory();
   const { id } = useParams();
@@ -11,10 +15,17 @@ const ProductDetail = () => {
   const products = useSelector(store => store.products, shallowEqual);
   const [currProduct, setCurrProduct] = useState(null);
 
+  /**
+   * Adds product to cart
+   */
   const handleAddToCart = () => dispatch(addToCart(id, currProduct));
 
+  /**
+   * Removes product from cart
+   */
   const handleDeleteFromCart = () => dispatch(deleteFromCart(id));
 
+  // gets product to display based on URL param, or redirects if invalid param
   useEffect(() => {
     const productId =
       Object.keys(products).find(productId => productId === id);

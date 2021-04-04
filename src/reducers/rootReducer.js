@@ -1,6 +1,12 @@
 import { products } from "../data.json";
 import { ADD_TO_CART, DELETE_FROM_CART } from "../actionTypes";
 
+/**
+ * Determines how to modify state based on action
+ * @param {Object{Object{string|number}}} state 
+ * @param {Object{string|Object{string|number}}} action 
+ * @returns new version of state
+ */
 const rootReducer = (state={ products, cart: {} }, action) => {
   let currProduct;
   let newProduct;

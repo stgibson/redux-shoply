@@ -4,6 +4,10 @@ import { v4 as uuid } from "uuid";
 import Product from "./Product";
 import "./Cart.css";
 
+/**
+ * Component for displaying user's cart
+ * @returns JSX code for rendering cart
+ */
 const Cart = () => {
   const cart = useSelector(store => store.cart, shallowEqual);
 
