@@ -11,9 +11,21 @@ import "./Cart.css";
 const Cart = () => {
   const cart = useSelector(store => store.cart, shallowEqual);
 
+  /**
+   * Determines total cost of items in cart
+   * @returns total cost
+   */
+   const getCost = () => {
+    const cost =  Object.keys(cart).reduce((cost, nextProductId) => (
+      cost + (cart[nextProductId].quantity * cart[nextProductId].price)
+    ), 0);
+    return cost.toFixed(2);
+  };
+
   return (
     <div className="Cart">
       <h2>Cart</h2>
+      <p>Total cost: ${ getCost() }</p>
       <ul>
         {
           Object.keys(cart).map(productId => (
