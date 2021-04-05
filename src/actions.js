@@ -1,4 +1,4 @@
-import { ADD_TO_CART, DELETE_FROM_CART } from "./actionTypes";
+import { ADD_TO_CART, DELETE_FROM_CART, ADD_DISCOUNT } from "./actionTypes";
 
 /**
  * Gets action for adding an item to cart in store
@@ -17,6 +17,10 @@ const addToCart = (id, product) => {
  */
 const deleteFromCart = (id) => {
   return { type: DELETE_FROM_CART, id };
-}
+};
 
-export { addToCart, deleteFromCart };
+const addDiscount = (discount) => {
+  return { type: ADD_DISCOUNT, discount };
+};
+
+export { addToCart, deleteFromCart, addDiscount };

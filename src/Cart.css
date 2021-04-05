@@ -10,3 +10,11 @@
 .Cart p {
   margin-left: 20px;
 }
+
+.Cart form {
+  margin-left: 20px;
+}
+
+.Cart input {
+  margin: 0 5px;
+}

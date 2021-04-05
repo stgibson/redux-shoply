@@ -1,5 +1,5 @@
 import { products } from "../data.json";
-import { ADD_TO_CART, DELETE_FROM_CART } from "../actionTypes";
+import { ADD_TO_CART, DELETE_FROM_CART, ADD_DISCOUNT } from "../actionTypes";
 
 /**
  * Determines how to modify state based on action
@@ -37,6 +37,14 @@ const rootReducer = (state={ products, cart: {} }, action) => {
       }
       newProduct = { ...currProduct, quantity: currProduct.quantity - 1 };
       return { ...state, cart: { ...state.cart, [action.id]: newProduct } };
+    case ADD_DISCOUNT:
+      if (state.discount) {
+        console.error(
+          "Attempted to add a discount when one has already been added"
+        );
+        return state;
+      }
+      return { ...state, discount: action.discount };
     default:
       return state;
   }
