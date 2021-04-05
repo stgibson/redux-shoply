@@ -16,11 +16,19 @@ const Cart = () => {
   const currDiscount = useSelector(store => store.discount);
   const [discount, setDiscount] = useState("");
 
+  /**
+   * Updates discount when user types in input
+   * @param {Object{any}} evt 
+   */
   const handleChange = evt => {
     const { value } = evt.target;
     setDiscount(value);
   };
 
+  /**
+   * Prevents page from reloading and adds discount user submitted
+   * @param {Object{any}} evt 
+   */
   const handleSubmit = evt => {
     evt.preventDefault();
     if (!currDiscount) {

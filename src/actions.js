@@ -19,6 +19,11 @@ const deleteFromCart = (id) => {
   return { type: DELETE_FROM_CART, id };
 };
 
+/**
+ * Gets action for adding a discount to store
+ * @param {string} discount 
+ * @returns action
+ */
 const addDiscount = (discount) => {
   return { type: ADD_DISCOUNT, discount };
 };
